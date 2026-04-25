@@ -1,0 +1,57 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#061325"/>
+      <stop offset="60%" stop-color="#030812"/>
+      <stop offset="100%" stop-color="#020610"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="100%" r="60%">
+      <stop offset="0%" stop-color="#1a4a7a" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1a4a7a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g opacity="0.5">
+    <circle cx="120" cy="150" r="1" fill="#f4ede0"/>
+    <circle cx="280" cy="80" r="1" fill="#f4ede0" opacity="0.6"/>
+    <circle cx="520" cy="120" r="1.2" fill="#f4ede0" opacity="0.7"/>
+    <circle cx="680" cy="60" r="1" fill="#f4ede0" opacity="0.5"/>
+    <circle cx="900" cy="100" r="1.5" fill="#f4ede0" opacity="0.8"/>
+    <circle cx="1080" cy="180" r="1" fill="#f4ede0" opacity="0.6"/>
+    <circle cx="180" cy="490" r="1" fill="#f4ede0" opacity="0.4"/>
+    <circle cx="450" cy="540" r="1.2" fill="#f4ede0" opacity="0.5"/>
+    <circle cx="720" cy="510" r="1" fill="#f4ede0" opacity="0.6"/>
+    <circle cx="980" cy="560" r="1.4" fill="#f4ede0" opacity="0.5"/>
+    <circle cx="1120" cy="430" r="1" fill="#f4ede0" opacity="0.4"/>
+  </g>
+
+  <g transform="translate(80, 90)">
+    <text x="0" y="0" fill="#d4894a" font-family="Georgia, serif" font-size="14" font-style="italic" letter-spacing="4">A TIPPING POINT DISPATCH · 2026</text>
+  </g>
+
+  <g transform="translate(80, 230)">
+    <text x="0" y="0" fill="#f4ede0" font-family="Georgia, serif" font-size="120" font-weight="300" letter-spacing="-3">The ocean is</text>
+    <text x="0" y="130" fill="#f4ede0" font-family="Georgia, serif" font-size="120" font-weight="300" letter-spacing="-3">
+      <tspan fill="#e8a868" font-style="italic">100×</tspan> louder
+    </text>
+    <text x="0" y="260" fill="#f4ede0" font-family="Georgia, serif" font-size="120" font-weight="300" letter-spacing="-3">than in 1950.</text>
+  </g>
+
+  <g transform="translate(80, 560)">
+    <text x="0" y="0" fill="rgba(244,237,224,0.6)" font-family="Georgia, serif" font-size="22" font-style="italic">Real sperm whale recordings · ocean noise · what we are losing</text>
+  </g>
+
+  <g transform="translate(1080, 560)">
+    <line x1="-40" y1="-8" x2="0" y2="-8" stroke="#d4894a" stroke-width="0.5"/>
+    <text x="0" y="0" fill="#d4894a" font-family="Arial, sans-serif" font-size="13" letter-spacing="3" text-anchor="end">TIPPING POINT</text>
+  </g>
+
+  <g transform="translate(60, 380)" opacity="0.6">
+    <line x1="0" y1="0" x2="0" y2="0" stroke="#d4894a" stroke-width="1.5">
+      <animate attributeName="x2" from="0" to="40" dur="3s" repeatCount="indefinite"/>
+    </line>
+  </g>
+</svg>
