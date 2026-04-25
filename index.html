@@ -665,11 +665,11 @@
 
 <script>
 const CODAS = [
-  { id: '10',   file: 'audio/10.wav',   type: '1+1+3', clicks: 5, duration: '2.20s', note: 'Caribbean signature' },
-  { id: '1000', file: 'audio/1000.wav', type: '6+1',   clicks: 7, duration: '2.50s', note: 'Long-pause coda' },
-  { id: '1004', file: 'audio/1004.wav', type: 'Complex', clicks: 17, duration: '2.42s', note: 'Multiple whales' },
-  { id: '1017', file: 'audio/1017.wav', type: 'Exchange', clicks: 13, duration: '1.57s', note: 'Rapid back-and-forth' },
-  { id: '1018', file: 'audio/1018.wav', type: 'Chorus', clicks: 18, duration: '1.68s', note: 'Group vocalization' }
+  { id: '10',   file: '10.wav',   type: '1+1+3', clicks: 5, duration: '2.20s', note: 'Caribbean signature' },
+  { id: '1000', file: '1000.wav', type: '6+1',   clicks: 7, duration: '2.50s', note: 'Long-pause coda' },
+  { id: '1004', file: '1004.wav', type: 'Complex', clicks: 17, duration: '2.42s', note: 'Multiple whales' },
+  { id: '1017', file: '1017.wav', type: 'Exchange', clicks: 13, duration: '1.57s', note: 'Rapid back-and-forth' },
+  { id: '1018', file: '1018.wav', type: 'Chorus', clicks: 18, duration: '1.68s', note: 'Group vocalization' }
 ];
 
 const ICI_DATA = {
@@ -732,7 +732,7 @@ async function playQuiet() {
   stopAll();
   document.getElementById('quietCard').classList.add('playing');
 
-  const codaBuf = await loadCoda('audio/10.wav');
+  const codaBuf = await loadCoda('10.wav');
 
   const src = audioCtx.createBufferSource();
   src.buffer = codaBuf;
@@ -761,7 +761,7 @@ async function playLoud() {
   stopAll();
   document.getElementById('loudCard').classList.add('playing');
 
-  const codaBuf = await loadCoda('audio/10.wav');
+  const codaBuf = await loadCoda('10.wav');
   const dur = codaBuf.duration;
 
   const src = audioCtx.createBufferSource();
@@ -815,7 +815,7 @@ document.getElementById('loudCard').onclick = () => {
 
 (async () => {
   try {
-    const buf = await loadCoda('audio/10.wav');
+    const buf = await loadCoda('10.wav');
     drawWaveformFromBuffer(document.getElementById('quietWave'), buf, '#e8a868');
     drawWaveformFromBuffer(document.getElementById('loudWave'), buf, '#c4533a');
   } catch(e) {
