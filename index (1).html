@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Loudening — On ocean noise and whale silence</title>
+
+<meta name="description" content="The ocean is 100× louder than it was in 1950. A scrollytelling page with real sperm whale recordings — inspired by Project CETI — on what shipping noise is doing to the ocean.">
+
+<meta name="keywords" content="ocean noise, sperm whales, ship noise, marine bioacoustics, Project CETI, Dominica Sperm Whale Project, IMO, whale communication">
+<meta name="theme-color" content="#030812">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="canonical" href="https://vickivale0.github.io/ocean-noise-whales/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="The ocean is 100× louder than in 1950.">
+<meta property="og:description" content="A scrollytelling page with real sperm whale recordings, inspired by Project CETI. On ocean noise and what we are losing.">
+<meta property="og:image" content="https://vickivale0.github.io/ocean-noise-whales/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The ocean is 100× louder than in 1950 — inspired by Project CETI">
+<meta property="og:url" content="https://vickivale0.github.io/ocean-noise-whales/">
+
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-04-25T00:00:00Z">
+
+
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The ocean is 100× louder than in 1950.">
+<meta name="twitter:description" content="A scrollytelling page with real sperm whale recordings, inspired by Project CETI. On ocean noise and what we are losing.">
+<meta name="twitter:image" content="https://vickivale0.github.io/ocean-noise-whales/og-card.png">
+<meta name="twitter:image:alt" content="The ocean is 100× louder than in 1950 — inspired by Project CETI">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Loudening — On ocean noise and whale silence",
+  "description": "The ocean is 100× louder than it was in 1950. A scrollytelling page with real sperm whale recordings, inspired by Project CETI.",
+  "image": "https://vickivale0.github.io/ocean-noise-whales/og-card.png",
+  "datePublished": "2026-04-25",
+  "mainEntityOfPage": "https://vickivale0.github.io/ocean-noise-whales/"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --abyss: #030812;
+    --deep: #061325;
+    --mid: #0d2645;
+    --shallow: #1a4a7a;
+    --foam: #f4ede0;
+    --paper: #f7f1e3;
+    --ink: #0b1828;
+    --amber: #d4894a;
+    --amber-soft: #e8a868;
+    --warning: #c4533a;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter Tight', -apple-system, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--abyss);
+    color: var(--foam);
+    overflow-x: hidden;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .listen-cursor { cursor: crosshair; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 50% 110%, rgba(26, 74, 122, 0.35), transparent 60%),
+      linear-gradient(180deg, #061325 0%, #030812 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 4rem 2rem; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(244, 237, 224, 0.3), transparent),
+      radial-gradient(1px 1px at 60% 70%, rgba(244, 237, 224, 0.2), transparent),
+      radial-gradient(1px 1px at 80% 20%, rgba(244, 237, 224, 0.25), transparent),
+      radial-gradient(1px 1px at 35% 85%, rgba(244, 237, 224, 0.15), transparent),
+      radial-gradient(1px 1px at 90% 50%, rgba(244, 237, 224, 0.2), transparent);
+    background-size: 200px 200px; opacity: 0.6; pointer-events: none;
+  }
+  .hero-mark {
+    font-family: var(--serif); font-size: 12px; font-weight: 400;
+    letter-spacing: 4px; text-transform: uppercase; color: var(--amber);
+    margin-bottom: 3rem; z-index: 2; opacity: 0; animation: fadeUp 1.2s 0.3s forwards;
+  }
+  .hero-title {
+    font-family: var(--serif); font-size: clamp(56px, 12vw, 180px);
+    font-weight: 300; line-height: 0.9; letter-spacing: -0.04em; text-align: center;
+    z-index: 2; opacity: 0; animation: fadeUp 1.6s 0.6s forwards;
+  }
+  .hero-title em { font-style: italic; font-weight: 300; color: var(--amber-soft); }
+  .hero-subtitle {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(18px, 2.4vw, 28px);
+    color: rgba(244, 237, 224, 0.7); margin-top: 2rem;
+    text-align: center; max-width: 720px; z-index: 2;
+    opacity: 0; animation: fadeUp 1.6s 1.2s forwards;
+  }
+  .hero-meta {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(244, 237, 224, 0.4); z-index: 2;
+    opacity: 0; animation: fadeUp 1.6s 1.8s forwards; text-align: center;
+  }
+  .scroll-cue {
+    position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);
+    width: 1px; height: 60px;
+    background: linear-gradient(180deg, transparent, rgba(244, 237, 224, 0.4));
+    z-index: 2;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* EPIGRAPH */
+  .epigraph { background: var(--abyss); padding: 12rem 2rem; text-align: center; }
+  .epigraph blockquote {
+    max-width: 720px; margin: 0 auto;
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(24px, 3vw, 36px); font-weight: 300;
+    line-height: 1.4; color: rgba(244, 237, 224, 0.85);
+  }
+  .epigraph cite {
+    display: block; margin-top: 2rem;
+    font-family: var(--sans); font-style: normal; font-size: 12px;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--amber);
+  }
+
+  /* SECTIONS */
+  .timeline-section, .range-section, .listen-section, .map-section, .archive-section, .cta-section {
+    padding: 10rem 2rem; position: relative;
+  }
+  .timeline-section { background: linear-gradient(180deg, var(--abyss) 0%, var(--deep) 100%); }
+  .range-section { background: linear-gradient(180deg, var(--deep) 0%, var(--mid) 100%); overflow: hidden; }
+  .listen-section { background: var(--mid); }
+  .map-section { background: linear-gradient(180deg, var(--mid) 0%, var(--deep) 100%); overflow: hidden; }
+  .archive-section { background: var(--deep); }
+  .cta-section { background: var(--abyss); }
+
+  .section-inner { max-width: 980px; margin: 0 auto; }
+  .section-label {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 4px; text-transform: uppercase; color: var(--amber);
+    margin-bottom: 1.5rem;
+  }
+  .section-headline {
+    font-family: var(--serif); font-weight: 300;
+    font-size: clamp(36px, 5vw, 64px); line-height: 1.1;
+    letter-spacing: -0.02em; margin-bottom: 1.5rem;
+  }
+  .section-headline em { font-style: italic; color: var(--amber-soft); }
+  .section-lead {
+    font-family: var(--serif); font-size: clamp(18px, 2vw, 22px);
+    font-weight: 300; line-height: 1.5;
+    color: rgba(244, 237, 224, 0.75); max-width: 640px; margin-bottom: 5rem;
+  }
+
+  /* TIMELINE GRAPH */
+  .timeline-graph { position: relative; width: 100%; height: 480px; margin: 4rem 0; }
+  .timeline-graph svg { width: 100%; height: 100%; overflow: visible; }
+  .timeline-axis-label {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase;
+    fill: rgba(244, 237, 224, 0.4);
+  }
+  .timeline-year { font-family: var(--serif); font-size: 11px; fill: rgba(244, 237, 224, 0.5); }
+  .timeline-line { stroke: var(--amber); stroke-width: 1.5; fill: none; }
+  .timeline-fill { fill: url(#timelineGrad); opacity: 0.4; }
+  .timeline-marker { fill: var(--amber); }
+  .timeline-marker-line { stroke: rgba(212, 137, 74, 0.3); stroke-width: 0.5; stroke-dasharray: 2 3; }
+
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem; margin: 6rem 0 0; padding: 3rem 0;
+    border-top: 1px solid rgba(244, 237, 224, 0.1);
+    border-bottom: 1px solid rgba(244, 237, 224, 0.1);
+  }
+  .stat-num {
+    font-family: var(--serif); font-size: clamp(48px, 6vw, 72px);
+    font-weight: 300; line-height: 1; color: var(--amber-soft);
+    margin-bottom: 0.5rem; letter-spacing: -0.03em;
+  }
+  .stat-num sup { font-size: 0.5em; vertical-align: super; }
+  .stat-label {
+    font-family: var(--serif); font-style: italic;
+    font-size: 15px; color: rgba(244, 237, 224, 0.7); line-height: 1.4;
+  }
+
+  /* RANGE COMPARISON */
+  .range-visual {
+    position: relative; width: 100%; aspect-ratio: 16 / 10; margin: 4rem 0;
+    background: radial-gradient(ellipse at center, rgba(13, 38, 69, 0.6), transparent 70%);
+  }
+  .range-svg { width: 100%; height: 100%; }
+  .whale-dot { fill: var(--amber); }
+  .range-circle-1850 {
+    fill: rgba(244, 237, 224, 0.04);
+    stroke: rgba(244, 237, 224, 0.4);
+    stroke-width: 1; stroke-dasharray: 3 4;
+    transition: r 0.6s ease;
+  }
+  .range-circle-2026 {
+    fill: rgba(196, 83, 58, 0.08);
+    stroke: var(--warning); stroke-width: 1.5;
+    transition: r 0.6s ease;
+  }
+  .range-label { font-family: var(--serif); font-size: 14px; fill: rgba(244, 237, 224, 0.7); font-style: italic; }
+  .range-label-num { font-family: var(--serif); font-size: 28px; fill: var(--amber-soft); font-weight: 300; }
+  .range-controls {
+    display: flex; justify-content: center; gap: 0.5rem;
+    margin: 2rem 0; flex-wrap: wrap;
+  }
+  .range-btn {
+    background: transparent; border: 1px solid rgba(244, 237, 224, 0.2);
+    color: rgba(244, 237, 224, 0.7); padding: 12px 20px;
+    font-family: var(--sans); font-size: 12px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s; border-radius: 0;
+  }
+  .range-btn:hover, .range-btn.active {
+    background: rgba(212, 137, 74, 0.1); border-color: var(--amber); color: var(--amber);
+  }
+
+  /* LISTEN — REAL CODAS */
+  .real-coda-bar {
+    background: rgba(212, 137, 74, 0.06);
+    border: 1px solid rgba(212, 137, 74, 0.25);
+    padding: 1rem 1.5rem; margin-bottom: 3rem;
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--amber-soft); display: flex;
+    align-items: center; gap: 12px; line-height: 1.5;
+  }
+  .real-coda-bar::before {
+    content: '●'; color: var(--warning); font-size: 10px;
+    font-style: normal; flex-shrink: 0;
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .listen-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem;
+  }
+  @media (max-width: 720px) { .listen-grid { grid-template-columns: 1fr; } }
+  .listen-card {
+    padding: 3rem; border: 1px solid rgba(244, 237, 224, 0.1);
+    background: rgba(3, 8, 18, 0.4); cursor: pointer;
+    transition: all 0.4s; position: relative; overflow: hidden;
+  }
+  .listen-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at center, rgba(212, 137, 74, 0.08), transparent 60%);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .listen-card:hover::before { opacity: 1; }
+  .listen-card:hover { border-color: var(--amber); }
+  .listen-year {
+    font-family: var(--serif); font-size: 64px; font-weight: 300;
+    line-height: 1; color: var(--amber-soft); letter-spacing: -0.03em;
+    position: relative;
+  }
+  .listen-db {
+    font-family: var(--serif); font-style: italic; font-size: 18px;
+    color: rgba(244, 237, 224, 0.6); margin-top: 1rem; position: relative;
+  }
+  .listen-cta {
+    margin-top: 2rem; font-family: var(--sans); font-size: 11px;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--amber);
+    position: relative; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .listen-cta-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--amber); transition: transform 0.2s;
+  }
+  .listen-card.playing .listen-cta-dot { animation: pulse 0.4s infinite; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(2); }
+  }
+
+  /* WAVEFORM CANVAS */
+  .waveform {
+    width: 100%; height: 64px; margin-top: 1.5rem;
+    background: rgba(3, 8, 18, 0.4); position: relative;
+    border-top: 1px solid rgba(244, 237, 224, 0.05);
+    border-bottom: 1px solid rgba(244, 237, 224, 0.05);
+  }
+  .waveform canvas { width: 100%; height: 100%; }
+
+  /* ARCHIVE — coda gallery */
+  .coda-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem; margin-top: 3rem;
+  }
+  .coda-card {
+    background: rgba(244, 237, 224, 0.03); border: 1px solid rgba(244, 237, 224, 0.08);
+    padding: 1.5rem; cursor: pointer; transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .coda-card:hover {
+    border-color: var(--amber); background: rgba(212, 137, 74, 0.06);
+  }
+  .coda-id {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 2px; color: rgba(244, 237, 224, 0.4); margin-bottom: 8px;
+  }
+  .coda-type {
+    font-family: var(--serif); font-size: 24px; font-weight: 300;
+    color: var(--amber-soft); margin-bottom: 4px;
+  }
+  .coda-meta {
+    font-family: var(--serif); font-style: italic; font-size: 12px;
+    color: rgba(244, 237, 224, 0.6); margin-bottom: 12px;
+  }
+  .coda-pattern {
+    display: flex; align-items: center; gap: 4px;
+    margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid rgba(244, 237, 224, 0.06);
+    height: 24px;
+  }
+  .coda-click-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--amber); flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .coda-click-dot.firing { background: var(--foam); transform: scale(2.2); }
+  .coda-click-dot.gap { width: 8px; background: transparent; }
+  .coda-card.playing { border-color: var(--amber); }
+
+  /* PULLQUOTE */
+  .pullquote {
+    background: var(--abyss); padding: 14rem 2rem; text-align: center;
+    border-top: 1px solid rgba(244, 237, 224, 0.1);
+    border-bottom: 1px solid rgba(244, 237, 224, 0.1);
+  }
+  .pullquote-text {
+    max-width: 880px; margin: 0 auto;
+    font-family: var(--serif); font-size: clamp(28px, 4vw, 48px);
+    font-weight: 300; line-height: 1.25; letter-spacing: -0.02em;
+  }
+  .pullquote-text em { font-style: italic; color: var(--amber-soft); }
+
+  /* MAP */
+  .map-container {
+    position: relative; width: 100%; aspect-ratio: 2 / 1; margin: 4rem 0;
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(26, 74, 122, 0.3), transparent 50%),
+      radial-gradient(ellipse at 70% 60%, rgba(13, 38, 69, 0.4), transparent 50%),
+      var(--abyss);
+    border: 1px solid rgba(244, 237, 224, 0.08);
+  }
+  .map-svg { width: 100%; height: 100%; }
+  .ship-dot { fill: var(--warning); opacity: 0.7; }
+  .ship-dot.flicker { animation: flicker 3s infinite; }
+  @keyframes flicker {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+  }
+  .whale-route {
+    stroke: var(--amber-soft); stroke-width: 1;
+    stroke-dasharray: 2 3; fill: none; opacity: 0.7;
+  }
+  .map-legend {
+    position: absolute; bottom: 1.5rem; left: 1.5rem;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(244, 237, 224, 0.5);
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .legend-dot.ship { background: var(--warning); }
+  .legend-dot.whale { background: transparent; border: 1px dashed var(--amber-soft); }
+
+  /* CTA */
+  .cta-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  @media (max-width: 720px) { .cta-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  .cta-text {
+    font-family: var(--serif); font-size: 18px;
+    font-weight: 300; line-height: 1.7; color: rgba(244, 237, 224, 0.8);
+  }
+  .cta-text p { margin-bottom: 1.5rem; }
+  .cta-button {
+    display: inline-block; margin-top: 1rem; padding: 18px 32px;
+    background: transparent; border: 1px solid var(--amber);
+    color: var(--amber); font-family: var(--sans); font-size: 12px;
+    letter-spacing: 3px; text-transform: uppercase;
+    text-decoration: none; transition: all 0.3s;
+  }
+  .cta-button:hover { background: var(--amber); color: var(--abyss); }
+
+  /* SOURCES */
+  .sources {
+    background: var(--abyss); padding: 4rem 2rem;
+    border-top: 1px solid rgba(244, 237, 224, 0.08);
+  }
+  .sources-inner {
+    max-width: 980px; margin: 0 auto;
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 1.5px; color: rgba(244, 237, 224, 0.4); line-height: 2;
+  }
+  .sources-title {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--amber); margin-bottom: 1.5rem;
+    letter-spacing: 0; text-transform: none;
+  }
+  .sources a {
+    color: rgba(244, 237, 224, 0.6); text-decoration: none;
+    border-bottom: 1px dotted rgba(244, 237, 224, 0.3);
+  }
+
+  .colophon {
+    background: #000; padding: 3rem 2rem; text-align: center;
+    font-family: var(--serif); font-style: italic; font-size: 13px;
+    color: rgba(244, 237, 224, 0.4); line-height: 1.8;
+  }
+  .colophon-mark {
+    font-family: var(--sans); font-style: normal; font-size: 10px;
+    letter-spacing: 4px; text-transform: uppercase; color: var(--amber);
+    margin-top: 1rem;
+  }
+
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1.2s, transform 1.2s; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-mark">Inspired by Project CETI · the Cetacean Translation Initiative</div>
+  <h1 class="hero-title">The<br><em>Loudening</em></h1>
+  <p class="hero-subtitle">For 50 million years, whales sang across oceans.<br>In the last 70, we drowned them out.</p>
+  <div class="hero-meta">Scroll to descend</div>
+  <div class="scroll-cue"></div>
+</section>
+
+<section class="epigraph">
+  <blockquote>
+    "In the deep ocean, sound is sight.<br>
+    A blue whale's call once carried across an entire sea.<br>
+    Today, it dies inside the wake of a passing ship."
+  </blockquote>
+  <cite>— Christopher W. Clark, Cornell Bioacoustics Lab</cite>
+</section>
+
+<section class="timeline-section reveal">
+  <div class="section-inner">
+    <div class="section-label">01 · The Curve</div>
+    <h2 class="section-headline">A century of <em>industrial roar</em>.</h2>
+    <p class="section-lead">Ambient ocean noise has risen by more than 20 decibels since 1950 — a hundredfold increase in intensity. The cause is almost entirely commercial shipping. The world economy speaks; the ocean cannot hear itself.</p>
+
+    <div class="timeline-graph">
+      <svg viewBox="0 0 980 480" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="timelineGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d4894a" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#d4894a" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <line x1="60" y1="50" x2="60" y2="420" stroke="rgba(244, 237, 224, 0.15)" stroke-width="0.5"/>
+        <line x1="60" y1="420" x2="940" y2="420" stroke="rgba(244, 237, 224, 0.15)" stroke-width="0.5"/>
+        <text x="60" y="40" class="timeline-axis-label">Decibels (re 1 µPa²/Hz)</text>
+        <text x="20" y="60" class="timeline-axis-label">90</text>
+        <text x="20" y="180" class="timeline-axis-label">75</text>
+        <text x="20" y="300" class="timeline-axis-label">60</text>
+        <text x="20" y="420" class="timeline-axis-label">45</text>
+        <text x="60" y="450" class="timeline-year" text-anchor="middle">1850</text>
+        <text x="280" y="450" class="timeline-year" text-anchor="middle">1900</text>
+        <text x="500" y="450" class="timeline-year" text-anchor="middle">1950</text>
+        <text x="720" y="450" class="timeline-year" text-anchor="middle">2000</text>
+        <text x="940" y="450" class="timeline-year" text-anchor="middle">2026</text>
+        <path id="dbCurve" class="timeline-fill" d="M 60 380 Q 280 360, 500 320 T 720 140 T 940 70 L 940 420 L 60 420 Z"/>
+        <path id="dbLine" class="timeline-line" d="M 60 380 Q 280 360, 500 320 T 720 140 T 940 70" stroke-dasharray="1500" stroke-dashoffset="1500"/>
+        <line x1="500" y1="320" x2="500" y2="420" class="timeline-marker-line"/>
+        <circle cx="500" cy="320" r="4" class="timeline-marker"/>
+        <text x="510" y="310" class="timeline-year" fill="#e8a868" style="font-size: 12px;">52 dB · 1950</text>
+        <line x1="940" y1="70" x2="940" y2="420" class="timeline-marker-line"/>
+        <circle cx="940" cy="70" r="5" class="timeline-marker"/>
+        <text x="930" y="60" class="timeline-year" fill="#e8a868" text-anchor="end" style="font-size: 12px;">90+ dB · today</text>
+      </svg>
+    </div>
+
+    <div class="stat-grid">
+      <div>
+        <div class="stat-num">3.3<sup>dB</sup></div>
+        <div class="stat-label">Increase in ambient ocean noise <em>per decade</em>, every decade since 1950</div>
+      </div>
+      <div>
+        <div class="stat-num">×100</div>
+        <div class="stat-label">The intensity of the deep ocean is now one hundred times louder than it was when our grandparents were born</div>
+      </div>
+      <div>
+        <div class="stat-num">84<sup>%</sup></div>
+        <div class="stat-label">Of the right whale's communication space lost when just two ships pass through it</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="range-section reveal">
+  <div class="section-inner">
+    <div class="section-label">02 · The Vanishing Voice</div>
+    <h2 class="section-headline">Once a whale could be <em>heard</em> across an ocean.</h2>
+    <p class="section-lead">Sound travels five times faster underwater than in air. Blue whale calls were once detected by U.S. Navy sonar across hundreds of kilometres. As ambient noise rises, that range collapses — exponentially. A whale calling today is calling into a smaller and smaller room.</p>
+
+    <div class="range-controls">
+      <button class="range-btn active" data-species="blue">Blue whale</button>
+      <button class="range-btn" data-species="fin">Fin whale</button>
+      <button class="range-btn" data-species="humpback">Humpback</button>
+      <button class="range-btn" data-species="sperm">Sperm whale</button>
+    </div>
+
+    <div class="range-visual">
+      <svg class="range-svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet">
+        <circle id="circle1850" cx="400" cy="250" r="220" class="range-circle-1850"/>
+        <circle id="circle2026" cx="400" cy="250" r="40" class="range-circle-2026"/>
+        <circle cx="400" cy="250" r="5" class="whale-dot"/>
+        <text x="400" y="20" class="range-label" text-anchor="middle" id="rangeSpeciesLabel">Blue whale (Balaenoptera musculus)</text>
+        <line x1="400" y1="250" x2="620" y2="250" stroke="rgba(244, 237, 224, 0.3)" stroke-width="0.5" stroke-dasharray="2 3"/>
+        <text x="630" y="245" class="range-label-num" id="rangeOld">1,500 km</text>
+        <text x="630" y="265" class="range-label" style="font-size: 11px;">pre-industrial</text>
+        <line x1="400" y1="250" x2="440" y2="290" stroke="#c4533a" stroke-width="0.5"/>
+        <text x="450" y="305" class="range-label-num" style="fill: #c4533a; font-size: 22px;" id="rangeNew">40 km</text>
+        <text x="450" y="322" class="range-label" style="font-size: 11px; fill: rgba(196, 83, 58, 0.8);">today</text>
+        <text x="400" y="490" class="range-label" text-anchor="middle">Effective communication range, calm sea conditions</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="listen-section reveal">
+  <div class="section-inner">
+    <div class="section-label">03 · Listen</div>
+    <h2 class="section-headline">A real whale, <em>two oceans</em>.</h2>
+
+    <div class="real-coda-bar">
+      You're hearing an actual sperm whale, recorded off the coast of Dominica. From the Dominica Sperm Whale Project archive — coda 10, a "1+1+3" call, the signature dialect of the Eastern Caribbean clan. The same whale, placed in two acoustic environments, seventy years apart.
+    </div>
+
+    <div class="listen-grid">
+      <div class="listen-card listen-cursor" data-mode="quiet" id="quietCard">
+        <div class="listen-year">1850</div>
+        <div class="listen-db">≈ 50 decibels · whale song carries 1,500 km</div>
+        <div class="waveform"><canvas id="quietWave"></canvas></div>
+        <div class="listen-cta"><span class="listen-cta-dot"></span> Click to listen</div>
+      </div>
+      <div class="listen-card listen-cursor" data-mode="loud" id="loudCard">
+        <div class="listen-year">2026</div>
+        <div class="listen-db">≈ 90 decibels · whale song carries 40 km</div>
+        <div class="waveform"><canvas id="loudWave"></canvas></div>
+        <div class="listen-cta"><span class="listen-cta-dot"></span> Click to listen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="archive-section reveal">
+  <div class="section-inner">
+    <div class="section-label">04 · The Archive</div>
+    <h2 class="section-headline">Five voices from <em>one family</em>.</h2>
+    <p class="section-lead">Each of these recordings is a real sperm whale coda from the Dominica archive. Their patterns differ — some regular, some complex exchanges between two whales speaking at once. Click any card to hear what the Caribbean clan has been saying to itself, sometimes the same way for thirty years.</p>
+
+    <div class="coda-grid" id="codaGrid"></div>
+  </div>
+</section>
+
+<section class="map-section reveal">
+  <div class="section-inner">
+    <div class="section-label">05 · The Convergence</div>
+    <h2 class="section-headline">Where shipping lanes <em>cross whale roads</em>.</h2>
+    <p class="section-lead">The world's busiest shipping arteries — the Strait of Malacca, the English Channel, the Mediterranean, the U.S. East Coast — overlap almost perfectly with cetacean migration corridors. There is no detour. There is no quiet route.</p>
+
+    <div class="map-container">
+      <svg class="map-svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
+        <path d="M 100 250 Q 200 200, 300 240 L 350 280 L 320 320 L 280 340 L 200 320 L 150 290 Z" fill="rgba(244, 237, 224, 0.04)" stroke="rgba(244, 237, 224, 0.15)" stroke-width="0.5"/>
+        <path d="M 280 180 Q 380 160, 480 200 L 530 250 L 510 290 L 460 310 L 400 290 L 340 250 L 300 220 Z" fill="rgba(244, 237, 224, 0.04)" stroke="rgba(244, 237, 224, 0.15)" stroke-width="0.5"/>
+        <path d="M 600 200 Q 720 180, 850 220 L 920 280 L 880 340 L 800 360 L 720 340 L 660 290 Z" fill="rgba(244, 237, 224, 0.04)" stroke="rgba(244, 237, 224, 0.15)" stroke-width="0.5"/>
+        <path d="M 950 380 Q 1050 360, 1150 400 L 1180 460 L 1100 480 L 1000 460 Z" fill="rgba(244, 237, 224, 0.04)" stroke="rgba(244, 237, 224, 0.15)" stroke-width="0.5"/>
+        <path class="whale-route" d="M 80 350 Q 200 320, 320 360 T 560 380 T 800 340 T 1100 320"/>
+        <path class="whale-route" d="M 100 200 Q 300 240, 500 200 T 900 180 T 1180 220"/>
+        <path class="whale-route" d="M 200 480 Q 400 460, 600 480 T 1000 470 T 1180 490"/>
+        <g id="ships"></g>
+        <text x="180" y="270" fill="rgba(244, 237, 224, 0.4)" font-size="9" font-family="Inter Tight, sans-serif" letter-spacing="1.5">N. AMERICA</text>
+        <text x="380" y="220" fill="rgba(244, 237, 224, 0.4)" font-size="9" font-family="Inter Tight, sans-serif" letter-spacing="1.5">EUROPE</text>
+        <text x="700" y="260" fill="rgba(244, 237, 224, 0.4)" font-size="9" font-family="Inter Tight, sans-serif" letter-spacing="1.5">ASIA</text>
+      </svg>
+      <div class="map-legend">
+        <div class="legend-item"><span class="legend-dot ship"></span> Active shipping vessel</div>
+        <div class="legend-item"><span class="legend-dot whale"></span> Whale migration corridor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pullquote reveal">
+  <p class="pullquote-text">
+    "In years of peak fertility, <em>noisy years</em> lower the probability of a successful birth by over <em>25 percent</em>."
+  </p>
+  <cite style="font-family: var(--sans); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); display: block; margin-top: 3rem;">— M. Scott Taylor, PERC, 2025</cite>
+</section>
+
+<section class="cta-section reveal">
+  <div class="section-inner">
+    <div class="section-label">06 · What can be quieted</div>
+    <h2 class="section-headline" style="margin-bottom: 3rem;">The fix exists. <em>It is being ignored.</em></h2>
+    <div class="cta-grid">
+      <div class="cta-text">
+        <p>The International Maritime Organization issued voluntary guidelines for underwater noise reduction in 2014. Revised in 2024. Adopted, in any meaningful form, by almost no one.</p>
+        <p>Quieter propellers exist. Slower transit speeds work — a 10% reduction in vessel speed cuts noise output by half. After 9/11, when North Atlantic shipping briefly collapsed, ambient noise in the Bay of Fundy dropped 6 decibels. Right whale stress hormones fell with it, measurably, within days.</p>
+        <p>The ocean can recover. It does not need decades. It needs a regulation with teeth.</p>
+      </div>
+      <div>
+        <p style="font-family: var(--serif); font-style: italic; font-size: 24px; font-weight: 300; line-height: 1.4; color: var(--amber-soft); margin-bottom: 2rem;">"This is not a story about whales. It is a story about whether we are willing to be quieter."</p>
+        <a href="https://www.projectceti.org/" target="_blank" class="cta-button">Learn more about Project CETI →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="sources-inner">
+    <div class="sources-title">Sources, audio, and credits</div>
+    <strong style="color: rgba(244, 237, 224, 0.7); font-weight: 500;">Audio recordings:</strong> Dominica Sperm Whale Project (DSWP) dataset, released alongside Project CETI's WhAM model (<a href="https://github.com/Project-CETI/wham" target="_blank">github.com/Project-CETI/wham</a>). Dataset hosted at <a href="https://huggingface.co/datasets/orrp/DSWP" target="_blank">huggingface.co/datasets/orrp/DSWP</a>. 1,501 sperm whale codas, recorded 2005–2018 off the coast of Dominica using boat-based hydrophones and animal-borne acoustic tags. Released under Creative Commons Attribution 4.0 International (CC BY 4.0). Cite: Paradise et al., "Towards A Translative Model of Sperm Whale Vocalization" (NeurIPS 2025).<br><br>
+    <strong style="color: rgba(244, 237, 224, 0.7); font-weight: 500;">Data and statistics:</strong> University of Melbourne · Pursuit (2025) · Frisk, Nature Scientific Reports (2012, "Noiseonomics") · Rolland et al., Royal Society B (2012) · Veirs et al., PeerJ (2016) · M. Scott Taylor, PERC (2025) · WWF Arctic Underwater Noise Programme (2024) · International Maritime Organization Guidelines MEPC.1/Circ.906 (2024) · NOAA Ocean Noise Reference Station Network · Project CETI (<a href="https://github.com/Project-CETI" target="_blank">github.com/Project-CETI</a>) · The Dominica Sperm Whale Project (<a href="https://www.thespermwhaleproject.org" target="_blank">thespermwhaleproject.org</a>)
+  </div>
+</section>
+
+<footer class="colophon">
+  Inspired by Project CETI — the Cetacean Translation Initiative.<br>
+  Real sperm whale recordings from the Dominica Sperm Whale Project.<br>
+  <div class="colophon-mark">2026</div>
+</footer>
+
+<script>
+const CODAS = [
+  { id: '10',   file: '10.wav',   type: '1+1+3', clicks: 5, duration: '2.20s', note: 'Caribbean signature' },
+  { id: '1000', file: '1000.wav', type: '6+1',   clicks: 7, duration: '2.50s', note: 'Long-pause coda' },
+  { id: '1004', file: '1004.wav', type: 'Complex', clicks: 17, duration: '2.42s', note: 'Multiple whales' },
+  { id: '1017', file: '1017.wav', type: 'Exchange', clicks: 13, duration: '1.57s', note: 'Rapid back-and-forth' },
+  { id: '1018', file: '1018.wav', type: 'Chorus', clicks: 18, duration: '1.68s', note: 'Group vocalization' }
+];
+
+const ICI_DATA = {
+  '10':   [0, 0.412, 0.402, 0.192, 0.191],
+  '1000': [0, 0.520, 0.516, 0.290, 0.129, 0.097, 0.520],
+  '1004': [0, 0.058, 0.196, 0.330, 0.294, 0.151, 0.044, 0.086, 0.050, 0.075, 0.189, 0.063, 0.057, 0.114, 0.110, 0.131, 0.284],
+  '1017': [0, 0.133, 0.091, 0.083, 0.169, 0.125, 0.104, 0.040, 0.061, 0.172, 0.264, 0.108, 0.188],
+  '1018': [0, 0.130, 0.061, 0.066, 0.048, 0.046, 0.087, 0.097, 0.073, 0.073, 0.076, 0.062, 0.058, 0.150, 0.247, 0.053, 0.100, 0.163]
+};
+
+let audioCtx = null;
+let activeNodes = [];
+let audioCache = {};
+
+function initAudio() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
+
+async function loadCoda(file) {
+  if (audioCache[file]) return audioCache[file];
+  initAudio();
+  const resp = await fetch(file);
+  const arrayBuf = await resp.arrayBuffer();
+  const audioBuf = await audioCtx.decodeAudioData(arrayBuf);
+  audioCache[file] = audioBuf;
+  return audioBuf;
+}
+
+function stopAll() {
+  activeNodes.forEach(n => { try { n.stop(); } catch(e){} });
+  activeNodes = [];
+  document.querySelectorAll('.listen-card, .coda-card').forEach(c => c.classList.remove('playing'));
+}
+
+function drawWaveformFromBuffer(canvas, audioBuf, color) {
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width = canvas.offsetWidth * 2;
+  const h = canvas.height = canvas.offsetHeight * 2;
+  ctx.scale(2, 2);
+  const data = audioBuf.getChannelData(0);
+  const step = Math.ceil(data.length / (w/2));
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 0.8;
+  ctx.beginPath();
+  for (let i = 0; i < w/2; i++) {
+    let min = 1, max = -1;
+    for (let j = 0; j < step; j++) {
+      const v = data[i * step + j] || 0;
+      if (v < min) min = v;
+      if (v > max) max = v;
+    }
+    ctx.moveTo(i, h/4 + min * (h/4) * 0.9);
+    ctx.lineTo(i, h/4 + max * (h/4) * 0.9);
+  }
+  ctx.stroke();
+}
+
+async function playQuiet() {
+  initAudio();
+  stopAll();
+  document.getElementById('quietCard').classList.add('playing');
+
+  const codaBuf = await loadCoda('10.wav');
+
+  const src = audioCtx.createBufferSource();
+  src.buffer = codaBuf;
+  const gain = audioCtx.createGain();
+  gain.gain.value = 1.0;
+  src.connect(gain).connect(audioCtx.destination);
+  src.start();
+  activeNodes.push(src);
+
+  const ambGain = audioCtx.createGain();
+  ambGain.gain.value = 0.04;
+  const ambOsc = audioCtx.createOscillator();
+  ambOsc.type = 'sine';
+  ambOsc.frequency.value = 60;
+  ambOsc.connect(ambGain).connect(audioCtx.destination);
+  ambOsc.start();
+  activeNodes.push(ambOsc);
+
+  src.onended = () => {
+    setTimeout(() => stopAll(), 300);
+  };
+}
+
+async function playLoud() {
+  initAudio();
+  stopAll();
+  document.getElementById('loudCard').classList.add('playing');
+
+  const codaBuf = await loadCoda('10.wav');
+  const dur = codaBuf.duration;
+
+  const src = audioCtx.createBufferSource();
+  src.buffer = codaBuf;
+  const gain = audioCtx.createGain();
+  gain.gain.value = 0.55;
+  src.connect(gain).connect(audioCtx.destination);
+  src.start();
+  activeNodes.push(src);
+
+  const noiseBuf = audioCtx.createBuffer(1, audioCtx.sampleRate * (dur + 0.5), audioCtx.sampleRate);
+  const noiseData = noiseBuf.getChannelData(0);
+  for (let i = 0; i < noiseData.length; i++) {
+    noiseData[i] = (Math.random() * 2 - 1) * 0.3;
+  }
+  const noise = audioCtx.createBufferSource();
+  noise.buffer = noiseBuf;
+  const lp = audioCtx.createBiquadFilter();
+  lp.type = 'lowpass';
+  lp.frequency.value = 200;
+  const noiseGain = audioCtx.createGain();
+  noiseGain.gain.value = 0.22;
+  noise.connect(lp).connect(noiseGain).connect(audioCtx.destination);
+  noise.start();
+  activeNodes.push(noise);
+
+  [40, 80, 120].forEach((freq, i) => {
+    const osc = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.value = freq;
+    g.gain.value = 0.025 + i * 0.012;
+    osc.connect(g).connect(audioCtx.destination);
+    osc.start();
+    activeNodes.push(osc);
+  });
+
+  src.onended = () => {
+    setTimeout(() => stopAll(), 500);
+  };
+}
+
+document.getElementById('quietCard').onclick = () => {
+  if (document.getElementById('quietCard').classList.contains('playing')) stopAll();
+  else playQuiet();
+};
+document.getElementById('loudCard').onclick = () => {
+  if (document.getElementById('loudCard').classList.contains('playing')) stopAll();
+  else playLoud();
+};
+
+(async () => {
+  try {
+    const buf = await loadCoda('10.wav');
+    drawWaveformFromBuffer(document.getElementById('quietWave'), buf, '#e8a868');
+    drawWaveformFromBuffer(document.getElementById('loudWave'), buf, '#c4533a');
+  } catch(e) {
+    console.warn('Waveform pre-render skipped:', e);
+  }
+})();
+
+const speciesData = {
+  blue: { name: 'Blue whale (Balaenoptera musculus)', old: '1,500 km', new: '40 km', oldR: 220, newR: 40 },
+  fin: { name: 'Fin whale (Balaenoptera physalus)', old: '850 km', new: '60 km', oldR: 180, newR: 50 },
+  humpback: { name: 'Humpback (Megaptera novaeangliae)', old: '160 km', new: '30 km', oldR: 130, newR: 45 },
+  sperm: { name: 'Sperm whale (Physeter macrocephalus)', old: '60 km', new: '15 km', oldR: 100, newR: 38 }
+};
+
+document.querySelectorAll('.range-btn').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const sp = speciesData[btn.dataset.species];
+    document.getElementById('rangeSpeciesLabel').textContent = sp.name;
+    document.getElementById('rangeOld').textContent = sp.old;
+    document.getElementById('rangeNew').textContent = sp.new;
+    document.getElementById('circle1850').setAttribute('r', sp.oldR);
+    document.getElementById('circle2026').setAttribute('r', sp.newR);
+  };
+});
+
+const grid = document.getElementById('codaGrid');
+CODAS.forEach((c, idx) => {
+  const card = document.createElement('div');
+  card.className = 'coda-card listen-cursor';
+  card.dataset.idx = idx;
+
+  const icis = ICI_DATA[c.id];
+  const total = icis.reduce((a, b) => a + b, 0);
+  let dotsHtml = '';
+  let cumT = 0;
+  icis.forEach((iv, i) => {
+    cumT += iv;
+    if (i > 0 && iv > 0.18) {
+      dotsHtml += '<span class="coda-click-dot gap"></span>';
+    }
+    dotsHtml += `<span class="coda-click-dot" data-i="${i}"></span>`;
+  });
+
+  card.innerHTML = `
+    <div class="coda-id">DSWP · ${c.id}</div>
+    <div class="coda-type">${c.type}</div>
+    <div class="coda-meta">${c.clicks} clicks · ${c.duration}<br>${c.note}</div>
+    <div class="coda-pattern">${dotsHtml}</div>
+  `;
+
+  card.onclick = async () => {
+    if (card.classList.contains('playing')) {
+      stopAll();
+      return;
+    }
+    stopAll();
+    card.classList.add('playing');
+    initAudio();
+    try {
+      const buf = await loadCoda(c.file);
+      const src = audioCtx.createBufferSource();
+      src.buffer = buf;
+      const g = audioCtx.createGain();
+      g.gain.value = 1.0;
+      src.connect(g).connect(audioCtx.destination);
+      src.start();
+      activeNodes.push(src);
+
+      const dots = card.querySelectorAll('.coda-click-dot:not(.gap)');
+      let cum = 0;
+      icis.forEach((iv, i) => {
+        cum += iv;
+        const ms = cum * 1000;
+        setTimeout(() => {
+          if (dots[i] && card.classList.contains('playing')) {
+            dots[i].classList.add('firing');
+            setTimeout(() => dots[i] && dots[i].classList.remove('firing'), 120);
+          }
+        }, ms);
+      });
+
+      src.onended = () => setTimeout(() => stopAll(), 200);
+    } catch(e) {
+      console.error('Failed to play', c.file, e);
+      stopAll();
+    }
+  };
+  grid.appendChild(card);
+});
+
+const shipsGroup = document.getElementById('ships');
+const shipPositions = [
+  [180, 280], [220, 290], [260, 270], [300, 285], [340, 295],
+  [380, 230], [420, 245], [460, 235], [500, 250], [540, 260], [580, 250],
+  [620, 270], [660, 285], [700, 275], [740, 290], [780, 280],
+  [820, 305], [860, 295], [900, 310], [940, 320],
+  [310, 360], [380, 380], [450, 370], [520, 385], [610, 375],
+  [690, 390], [770, 380], [850, 395], [920, 385],
+  [240, 410], [320, 430], [410, 425], [510, 440], [620, 430],
+  [730, 445], [840, 435], [950, 450],
+  [150, 200], [220, 180], [310, 195], [400, 175], [490, 190]
+];
+shipPositions.forEach((pos, i) => {
+  const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  c.setAttribute('cx', pos[0]);
+  c.setAttribute('cy', pos[1]);
+  c.setAttribute('r', 1.8);
+  c.setAttribute('class', 'ship-dot' + (i % 3 === 0 ? ' flicker' : ''));
+  c.style.animationDelay = (i * 0.1) + 's';
+  shipsGroup.appendChild(c);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const dbLine = document.getElementById('dbLine');
+const drawObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      dbLine.style.transition = 'stroke-dashoffset 3s ease-out';
+      dbLine.style.strokeDashoffset = '0';
+      drawObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+drawObserver.observe(document.querySelector('.timeline-graph'));
+</script>
+</body>
+</html>
